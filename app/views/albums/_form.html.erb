@@ -1,0 +1,31 @@
+<%= form_with model: @album do |form| %>
+    <div>
+        <%= form.text_field :title, placeholder: "Title", class: "form-control mb-4"%>
+    </div>
+
+    <div>
+        <%= form.text_field :body, placeholder: "description", class: "form-control mb-4"%>
+    </div>
+
+    <div>
+        <%= form.number_field :user_id, value: current_user.id, type: :hidden %>
+    </div>
+
+    <div class="mb-4">
+        <%= form.file_field :images, multiple: true, class: "btn btn-outline-secondary" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.text_field :all_tags, placeholder: "Add #tags", class: "form-control mb-4" %>
+    </div>
+
+    <div class="mb-4">
+        <%= form.check_box :published%>
+        <label for="flexSwitchCheckDefault">Publish Now?</label>
+    </div>
+
+    <div class="d-grid gap-2 col-6 mx-auto mb-3">
+        <input type="submit" name="commit" value="Create Album" data-disable-with="Create Album" class="btn btn-primary">
+    </div>
+
+<% end %>

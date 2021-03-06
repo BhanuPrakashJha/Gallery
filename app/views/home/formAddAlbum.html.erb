@@ -1,0 +1,26 @@
+<h1>New Album</h1>
+
+<%= form_with model: @album  do |form| %>
+  <div>
+    <%= form.label :Album_Name %><br>
+    <%= form.text_field :Album_Name %>
+  </div>
+
+  <div>
+    <%= form.label :Caption %><br>
+    <%= form.text_field :Caption %>
+  </div>
+
+<div>
+<%= form.label :"Do You Want To Publish This Album?" %>
+<%= form.check_box :checkBox %>
+</div>
+
+<div>   
+<input type="file" id="img" name="img" accept="image/*" multiple>
+</div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

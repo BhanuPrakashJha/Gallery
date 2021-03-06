@@ -1,0 +1,34 @@
+<h1 class="d-flex justify-content-center publishedAblumHead mb-1">Published Album Below</h1>
+
+<div class="d-flex justify-content-center mb-4">
+    <form class="d-flex">
+        <%= search_form_for @q do |f| %>
+        <%= f.search_field :tags_tag_name_cont, class: "form-control me-2", placeholder: "search #tags"  %>
+        <%= f.submit "search", class: "btn btn-outline-success"%>
+        <% end %>
+    </form>
+</div>
+
+<div class="row">
+
+
+
+    <% @albums.each do|album|%>
+
+    <div class="col-sm-12 col-md-4 d-flex justify-content-around mb-5">
+        <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
+
+            <%= image_tag (album.images.first), class: "card-img-top" %>
+
+            <div class="card-body">
+                <h3 class="card-title"><%= album.title%></h3>
+                <h5 class="card-text"><%= album.body%></h5>
+                <p class="card-text">#{<%= album.all_tags%>}</p>
+                <div class="btn-group d-flex justify-content-center">
+                    <%= link_to "Show", album_path(album), class: "btn btn-success btn-sm"%>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%end%>
+</div>
